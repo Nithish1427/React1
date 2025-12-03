@@ -13,9 +13,7 @@ function SignUp() {
 
   function handlePwd2Change(event) {
     setPwd2(event.target.value);
-  }
 
-  function handlePwdCheck() {
     if(pwd1==pwd2) {
         console.log("Same");
         setSame(true);
@@ -52,7 +50,7 @@ function SignUp() {
           />
         </div>
         <div className="mb-3 form-check">
-          <input onChange={handlePwdCheck} type="checkbox" className="form-check-input" />
+          <input type="checkbox" className="form-check-input" />
           <label className="form-check-label"> I Agree </label>
         </div>
         {!same && <p>Passwords do not match</p>}

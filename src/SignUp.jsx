@@ -14,12 +14,12 @@ function SignUp() {
   function handlePwd2Change(event) {
     setPwd2(event.target.value);
 
-    if(pwd1==pwd2) {
-        console.log("Same");
+    if(pwd1==event.target.value) {
+        console.log("Same Password");
         setSame(true);
     }
     else {
-        console.log("Different");
+        console.log("Different Password");
         setSame(false);
     }
   }

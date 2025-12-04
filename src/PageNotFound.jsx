@@ -4,7 +4,7 @@ function PageNotFound() {
   return (
     <>
       <p>Error: 404 - Page Not Found</p>
-      <a className="btn btn-primary" href="Home">Home</a>
+      <a className="btn btn-primary" href="/">Home</a>
       {/* this sends request to server each time - activity in network tab - needs internet connection - doesn't work offline*/}
       {/* advantage of React - Single Page Application - no need to go to the server every time - so, using <a></a> tag is of no use here */}
       <Link className="btn btn-danger" to="/">Home</Link>

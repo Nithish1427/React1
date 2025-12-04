@@ -4,14 +4,12 @@ function Counter() {
 
     const [count, setCount] = useState(0);
 
+    // Updater Function
     function Inc() {
-        setCount(count + 1);
-        setCount(count + 1);
-        // count should increase by 2 but it does not
-        // since react does batch update
-        // for both setCount it uses 0 as initial value.
-        // so it increases by 1 only, not by 2.
-        // to avoid this, use Updater Function
+        setCount((preCount) => preCount + 1); // 0 + 1 = 1
+        setCount((preCount) => preCount + 1); // 1 + 1 = 2
+        // given as arrow/anonymous function
+        // by this way, it takes the previous value of count instead of initial value of count
     }
 
     // for avoiding the difference in the display value and print value

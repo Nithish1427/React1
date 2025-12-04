@@ -5,7 +5,6 @@ function Home() {
   const [posts, setPosts] = useState(null);
 
   useEffect(() => {
-
     setTimeout(() => {
       fetch("http://localhost:3000/posts")
         .then((response) => {
@@ -18,8 +17,8 @@ function Home() {
         .catch((err) => {
           console.log(err);
         });
-    }, [])
-  }, 5000);
+    }, 5000);
+  }, []);
 
   return (
     <>

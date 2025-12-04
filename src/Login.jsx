@@ -1,7 +1,7 @@
 function Login() {
   return (
     <>
-      <form>
+      <form className="my-5" style={{ width: "50%", margin: "auto" }}>
         <div className="mb-3">
           <label for="exampleInputEmail1" className="form-label">
             Email address
@@ -37,7 +37,7 @@ function Login() {
           </label>
         </div>
         <button type="submit" className="btn btn-primary">
-          Submit
+          Login
         </button>
       </form>
     </>

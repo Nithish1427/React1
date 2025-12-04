@@ -15,14 +15,16 @@ function Counter() {
 
     // Updater Function
     function Inc() {
-        // setCount(count + 1);
+        setCount(count + 1);
         refCount.current ++;
+        console.log('Count: '+count);
+        console.log('refCount: '+refCount.current);
     }
 
     // for avoiding the difference in the display value and print value
     useEffect(() => {
         // console.log(count);
-        console.log(refCount);
+        // console.log(refCount);
     });
 
     return(

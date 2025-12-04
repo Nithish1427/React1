@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import Counter from './Counter.jsx'
 import Login from './Login.jsx'
 import SignUp from './SignUp.jsx'
 import Home from './Home.jsx'
@@ -20,6 +21,11 @@ const router = createBrowserRouter([
   {
     path : '/SignUp',
     element : <SignUp />,
+    errorElement : <PageNotFound />
+  },
+  {
+    path : '/Counter',
+    element : <Counter />,
     errorElement : <PageNotFound />
   }
 ]);

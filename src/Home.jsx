@@ -27,7 +27,6 @@ function Home() {
       console.log("Unmounted.... Cleaning Up.");
       controller.abort(); // fetching aborted - when moving onto different page before loading
     };
-    
   }, []);
 
   return (

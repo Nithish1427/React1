@@ -5,9 +5,11 @@ function Home() {
   const [posts, setPosts] = useState(null);
 
   useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
 
     setTimeout(() => {
-      fetch("http://localhost:3000/posts")
+      fetch("http://localhost:3000/posts", { signal })
         .then((response) => {
           return response.json();
         })
@@ -18,12 +20,14 @@ function Home() {
         .catch((err) => {
           console.log(err);
         });
-
-      // Clean Up Function - prevents memory leaking (useEffect creating unnecessary data)
-      return () => {
-        console.log("Unmounted.... Cleaning Up.");
-      };
     }, 5000);
+
+    // Clean Up Function - prevents memory leaking (useEffect creating unnecessary data)
+    return () => {
+      console.log("Unmounted.... Cleaning Up.");
+      controller.abort(); // fetching aborted - when moving onto different page before loading
+    };
+    
   }, []);
 
   return (

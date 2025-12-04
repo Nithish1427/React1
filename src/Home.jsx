@@ -1,13 +1,14 @@
-// Home --> Provider Component 
+// Home --> Provider Component
 
 import { useState, useEffect, createContext } from "react";
-import { Link } from "react-router-dom";
-import Login from './Login.jsx';
+import { Link, useNavigate } from "react-router-dom";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const dataContext = createContext();
 
 function Home() {
+
+  const navigate = useNavigate();
   const [posts, setPosts] = useState(null);
 
   const data = "DataData";
@@ -38,12 +39,12 @@ function Home() {
   return (
     <>
       <div className="container">
-        <Link to="/Login">Login</Link>
+        {/* <Link to="/Login">Login</Link> */}
 
         <dataContext.Provider value={data}>
-          <Login />
+          {/* <Login /> */}
         </dataContext.Provider>
-        
+
         <div className="row justify-content-center m-3">
           {posts &&
             posts.map((post) => {
@@ -52,11 +53,10 @@ function Home() {
                   key={post.id}
                   className="card m-3"
                   style={{ width: "18rem" }}
+                  onClick={() => {navigate('/Post/'+post.id)}}
                 >
                   <div className="card-body">
                     <h5 className="card-title">{post.title}</h5>
-                    <p className="card-text">{post.content}</p>
-                    <span className="card-date">{post.created_at}</span>
                   </div>
                 </div>
               );

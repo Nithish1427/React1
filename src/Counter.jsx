@@ -1,9 +1,13 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/refs */
 // Counter --> Consumer Component
 
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { dataContext } from "./Home";
 
 function Counter() {
+
+    let refCount = useRef(0);
 
     const data = useContext(dataContext);
 
@@ -11,22 +15,22 @@ function Counter() {
 
     // Updater Function
     function Inc() {
-        setCount((preCount) => preCount + 1); // 0 + 1 = 1
-        setCount((preCount) => preCount + 1); // 1 + 1 = 2
-        // given as arrow/anonymous function
-        // by this way, it takes the previous value of count instead of initial value of count
+        // setCount(count + 1);
+        refCount.current ++;
     }
 
     // for avoiding the difference in the display value and print value
     useEffect(() => {
-        console.log(count);
-    }, [count]);
+        // console.log(count);
+        console.log(refCount);
+    });
 
     return(
         <>
             <h2>{data}</h2>
-            <h2 className="m-5">{count}</h2>
-            <button className="mx-5" onClick={Inc}>Up</button>
+            <h2 className="m-5">{refCount.current}</h2>
+            <button className="mx-5 btn btn-primary" onClick={Inc}>Up</button>
+            <button className="mx-5 btn btn-secondary" onClick={() => setCount(refCount.current)}>Update</button>
         </>
     );
 }

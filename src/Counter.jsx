@@ -7,8 +7,9 @@ function Counter() {
     function Inc() {
         setCount(count + 1);
         console.log(count); 
-        // prints from 0, since setCount is an asynchronous function
-        // to avoid this, create useEffect and print count with that
+        // prints 0 when count displayed as 1, 1 when count is displayed as 2 and so on. 
+        // since setCount is an asynchronous function.
+        // to avoid this, create useEffect and print count with that.
     }
 
     return(

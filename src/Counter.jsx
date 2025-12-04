@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Counter() {
 
@@ -6,11 +6,12 @@ function Counter() {
 
     function Inc() {
         setCount(count + 1);
-        console.log(count); 
-        // prints 0 when count displayed as 1, 1 when count is displayed as 2 and so on. 
-        // since setCount is an asynchronous function.
-        // to avoid this, create useEffect and print count with that.
     }
+
+    // for avoiding the difference in the display value and print value
+    useEffect(() => {
+        console.log(count);
+    }, [count]);
 
     return(
         <>

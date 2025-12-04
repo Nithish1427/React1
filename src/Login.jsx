@@ -1,6 +1,15 @@
-function Login() {
+import { Link } from 'react-router-dom';
+import Counter from './Counter.jsx';
+
+function Login(props) {
+
+  const data = props.value;
+
   return (
     <>
+      <Counter value={data} />
+      
+      <Link to="/">Home</Link>
       <form className="my-5" style={{ width: "50%", margin: "auto" }}>
         <div className="mb-3">
           <label className="form-label">Email address</label>

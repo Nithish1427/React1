@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function Counter() {
+function Counter(props) {
 
     const [count, setCount] = useState(0);
 
@@ -19,6 +19,7 @@ function Counter() {
 
     return(
         <>
+            <h2>{props.value}</h2>
             <h2 className="m-5">{count}</h2>
             <button className="mx-5" onClick={Inc}>Up</button>
         </>

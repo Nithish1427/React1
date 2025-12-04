@@ -1,26 +1,27 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Login from './Login.jsx';
 
 function Home() {
   const [posts, setPosts] = useState(null);
+
+  const data = "DataData";
 
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
 
-    setTimeout(() => {
-      fetch("http://localhost:3000/posts", { signal })
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data);
-          setPosts(data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }, 5000);
+    fetch("http://localhost:3000/posts", { signal })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setPosts(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     // Clean Up Function - prevents memory leaking (useEffect creating unnecessary data)
     return () => {
@@ -33,6 +34,9 @@ function Home() {
     <>
       <div className="container">
         <Link to="/Login">Login</Link>
+
+        <Login value={data} />
+        
         <div className="row justify-content-center m-3">
           {posts &&
             posts.map((post) => {

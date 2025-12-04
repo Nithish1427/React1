@@ -5,6 +5,7 @@ function Home() {
   const [posts, setPosts] = useState(null);
 
   useEffect(() => {
+
     setTimeout(() => {
       fetch("http://localhost:3000/posts")
         .then((response) => {
@@ -17,6 +18,11 @@ function Home() {
         .catch((err) => {
           console.log(err);
         });
+
+      // Clean Up Function - prevents memory leaking (useEffect creating unnecessary data)
+      return () => {
+        console.log("Unmounted.... Cleaning Up.");
+      };
     }, 5000);
   }, []);
 

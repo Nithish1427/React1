@@ -1,14 +1,12 @@
 import { Link } from 'react-router-dom';
 import Counter from './Counter.jsx';
 
-function Login(props) {
-
-  const data = props.value;
+function Login() {
 
   return (
     <>
-      <Counter value={data} />
-      
+      <Counter />
+
       <Link to="/">Home</Link>
       <form className="my-5" style={{ width: "50%", margin: "auto" }}>
         <div className="mb-3">

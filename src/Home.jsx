@@ -1,6 +1,11 @@
-import { useState, useEffect } from "react";
+// Home --> Provider Component 
+
+import { useState, useEffect, createContext } from "react";
 import { Link } from "react-router-dom";
 import Login from './Login.jsx';
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const dataContext = createContext();
 
 function Home() {
   const [posts, setPosts] = useState(null);
@@ -35,7 +40,9 @@ function Home() {
       <div className="container">
         <Link to="/Login">Login</Link>
 
-        <Login value={data} />
+        <dataContext.Provider value={data}>
+          <Login />
+        </dataContext.Provider>
         
         <div className="row justify-content-center m-3">
           {posts &&

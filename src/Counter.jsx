@@ -1,6 +1,11 @@
-import { useState, useEffect } from "react";
+// Counter --> Consumer Component
 
-function Counter(props) {
+import { useState, useEffect, useContext } from "react";
+import { dataContext } from "./Home";
+
+function Counter() {
+
+    const data = useContext(dataContext);
 
     const [count, setCount] = useState(0);
 
@@ -19,7 +24,7 @@ function Counter(props) {
 
     return(
         <>
-            <h2>{props.value}</h2>
+            <h2>{data}</h2>
             <h2 className="m-5">{count}</h2>
             <button className="mx-5" onClick={Inc}>Up</button>
         </>

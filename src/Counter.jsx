@@ -6,6 +6,12 @@ function Counter() {
 
     function Inc() {
         setCount(count + 1);
+        setCount(count + 1);
+        // count should increase by 2 but it does not
+        // since react does batch update
+        // for both setCount it uses 0 as initial value.
+        // so it increases by 1 only, not by 2.
+        // to avoid this, use Updater Function
     }
 
     // for avoiding the difference in the display value and print value
